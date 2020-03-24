@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ~="cd ~"
+
+# List
+alias l="ls -la"  
+alias ll="ls -ll"  
+
+# Reload
+alias reload="source ~/.bash_profile"
+
+# Enable aliases to be used with sudo
+alias sudo='sudo '
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Git
+alias g="git"
+
+# Request using GET, POST, etc. method
+for METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+  alias "$METHOD"="lwp-request -m '$METHOD'"
+done
+unset METHOD
+
+# Hosts
+if [ -z "$EDITOR" ]; then 
+    EDITOR=nano # Using nano to open hosts file if no editor is defined
+fi
+alias hosts="sudo $EDITOR /etc/hosts"
+
+# List Environment Variables
+alias printenv='printenv | sort'
+
+if [ "$(uname)" == "Darwin" ]; then #macOS
+    source "$DOTFILES_DIR/alias_macos";
+# elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
+#     # Source Linux specific aliases
+fi

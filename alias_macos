@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+
+alias whereis='which'
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Copy pwd to clipboard
+alias cpwd="pwd|tr -d '\n'|pbcopy"
+
+# Cask
+alias cask="brew cask"
+
+

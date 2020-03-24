@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Check if executable exists
+is_executable() {
+  type "$1" > /dev/null 2>&1
+}
+
+# Add to path
+prepend-path() {
+  [ -d $1 ] && PATH="$1:$PATH"
+}
+
+# Switch long/short prompt
+ps0() {
+  unset PROMPT_COMMAND
+  PS1='$ '
+}
+ps1() {
+  source "$DOTFILES_DIR"/.prompt
+}

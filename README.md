@@ -27,3 +27,4 @@ You can find their dotfiles at:
 Additional Resources:
 * [.bashrc generator](http://bashrcgenerator.com/)
 * [Awesome Dotfiles](https://github.com/webpro/awesome-dotfiles)
+* [Linuxize](https://linuxize.com/)

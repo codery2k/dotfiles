@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if is-executable brew; then
+  BREW_PREFIX=$(brew --prefix)
+  BASH_COMPLETION="$BREW_PREFIX/share/bash-completion/bash_completion"
+  . "$BASH_COMPLETION"
+  unset BREW_PREFIX BASH_COMPLETION
+fi

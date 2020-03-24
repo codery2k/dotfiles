@@ -6,7 +6,7 @@ These are my dotfiles. Use them as you like, at your own risk!
 
 Add the following to your `~/.bash_profile`:
 ```bash
-DOTFILES_DIR=$HOME/dev/bash/barebones-dotfiles
+export DOTFILES_DIR=$HOME/dev/bash/barebones-dotfiles
 for f in $DOTFILES_DIR/.* ;
 do
     if [ -f $f ]; then

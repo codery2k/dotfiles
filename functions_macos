@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+
+# Random wallpaper from Unsplash
+ruw (){
+    declare wallpaper_dir=$HOME/Pictures/Wallpapers
+    declare img_name=$(date +%F_%H-%M-%S)
+    
+    if [ ! -d ${wallpaper_dir} ]; then 
+        mkdir -p ${wallpaper_dir};
+    fi
+
+    curl -s -L -o ${wallpaper_dir}/${img_name}.png "https://source.unsplash.com/featured/2880x1800?wallpaper/$RANDOM"  > /dev/null
+    osascript -e "tell application \"System Events\" to set picture of every desktop to \"${wallpaper_dir}/${img_name}.png\""
+   
+    killall Dock
+    
+    
+    
+    
+    # Some more examples of links
+
+    # http://source.unsplash.com/random/2880x1800/
+    # http://source.unsplash.com/collection/1446722/2880x1800/
+    # http://source.unsplash.com/2880x1800/?cool,wallpaper
+    # http://source.unsplash.com/collection/1538150/2880x1800/
+    # http://source.unsplash.com/2880x1800/?Categories
+    # http://source.unsplash.com/featured/2880x1800/
+    # https://source.unsplash.com/featured/2880x1800?wallpaper
+    # http://source.unsplash.com/random/2880x1800/
+    # http://source.unsplash.com/collection/1446722/2880x1800/
+    # http://source.unsplash.com/2880x1800/?cool,wallpaper
+    # http://source.unsplash.com/collection/1538150/2880x1800/
+    # http://source.unsplash.com/collections/827737/sport/2880x1800/
+    # http://unsplash.com/collections/395888/halloween/2880x1800/
+    # http://unsplash.com/collections/162468/earth-from-above/2880x1800/
+    # http://unsplash.com/collections/162213/long-exposure/2880x1800/
+    # http://unsplash.com/collections/2569191/experimental/2880x1800/
+    # http://unsplash.com/collections/1060/story-telling/2880x1800/
+    # http://unsplash.com/collections/369/adventure/2880x1800/
+    # http://unsplash.com/collections/410546/the-road-less-travelled/2880x1800/
+    #https://unsplash.com/collections/1111678/2880x1800/
+}
+
+
+
+

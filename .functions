@@ -18,3 +18,9 @@ ps0() {
 ps1() {
   source "$DOTFILES_DIR"/.prompt
 }
+
+if [ "$(uname)" == "Darwin" ]; then #macOS
+    source "$DOTFILES_DIR/functions_macos";
+# elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
+#     # Source Linux specific functions
+fi

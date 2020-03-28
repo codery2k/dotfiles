@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+
+# Random wallpaper from Unsplash
+ruw() {
+    declare wallpaper_dir=$HOME/Pictures/Wallpapers
+    declare img_name=$(date +%F_%H-%M-%S)
+
+    # Move following to functions file as get_and_save_wallpaper() with parameters
+    if [ ! -d ${wallpaper_dir} ]; then 
+        echo ${wallpaper_dir}
+        mkdir -p ${wallpaper_dir};
+    fi
+
+    curl -s -L -o ${wallpaper_dir}/${img_name}.png "https://source.unsplash.com/featured/2880x1800?wallpaper/$RANDOM"  > /dev/null
+    ## uptil here
+
+    gsettings set org.gnome.desktop.background picture-uri file://${wallpaper_dir}/${img_name}.png
+}

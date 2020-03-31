@@ -70,6 +70,8 @@ ruw (){
 rsw () {
     wallpaper_dir=$HOME/Pictures/Wallpapers
     img_name=$(ls ${wallpaper_dir} | sort -R | tail -n 1)
+    
+    echo ${wallpaper_dir}/${img_name}
 
     $(set_wallpaper)
 }

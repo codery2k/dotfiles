@@ -36,6 +36,9 @@ alias hosts="sudo $EDITOR /etc/hosts"
 # List Environment Variables
 alias printenv='printenv | sort'
 
+# If you use VSCodium instead of VSCode
+alias code="codium"
+
 if [ "$(uname)" == "Darwin" ]; then #macOS
     source "$DOTFILES_DIR/alias_macos";
 # elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux

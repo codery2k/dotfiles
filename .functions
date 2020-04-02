@@ -60,7 +60,7 @@ get_and_save_wallpaper () {
 ruw (){
     wallpaper_dir=$HOME/Pictures/Wallpapers
     date_time=$(date +%F_%H-%M-%S)
-    img_name=${date_time}.png
+    img_name=${date_time}.jpg
 
     $(get_and_save_wallpaper)
     $(set_wallpaper) 

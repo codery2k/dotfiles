@@ -13,4 +13,6 @@ alias cpwd="pwd|tr -d '\n'|pbcopy"
 # Cask
 alias cask="brew cask"
 
+# Sublime
+alias subl="sublime"
 

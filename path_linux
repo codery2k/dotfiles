@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+# LinuxBrew
+export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";

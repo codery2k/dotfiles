@@ -21,6 +21,9 @@ alias path='echo -e ${PATH//:/\\n} | sort'
 # Git
 alias g="git"
 
+# Locate
+alias locate="sudo updatedb && locate"
+
 # Request using GET, POST, etc. method
 for METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$METHOD"="lwp-request -m '$METHOD'"

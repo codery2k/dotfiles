@@ -75,3 +75,11 @@ rsw () {
 
     $(set_wallpaper)
 }
+
+# Delete wallpaper downloaded from unsplash
+duw () {
+  wallpaper_dir=$HOME/Pictures/Wallpapers
+  img_name=$(ls ${wallpaper_dir} -t | head -n 1)
+
+  rm -rf ${wallpaper_dir}/${img_name} 
+}

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
+if [ "$(uname)" == "Darwin" ]; then #macOS
+    :
+    # Source macos specific paths
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
     source "$DOTFILES_DIR/path_linux";
-# elif [ "$(uname)" == "Darwin" ]; then #macOS
-#     # Source Linux specific paths
 fi

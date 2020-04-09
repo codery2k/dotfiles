@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Locate
+alias locate="sudo updatedb && locate"

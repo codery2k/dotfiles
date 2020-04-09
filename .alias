@@ -21,9 +21,6 @@ alias path='echo -e ${PATH//:/\\n} | sort'
 # Git
 alias g="git"
 
-# Locate
-alias locate="sudo updatedb && locate"
-
 # Request using GET, POST, etc. method
 for METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$METHOD"="lwp-request -m '$METHOD'"
@@ -44,6 +41,6 @@ alias code="codium"
 
 if [ "$(uname)" == "Darwin" ]; then #macOS
     source "$DOTFILES_DIR/alias_macos";
-# elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
-#     # Source Linux specific aliases
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
+    source "$DOTFILES_DIR/alias_linux";
 fi

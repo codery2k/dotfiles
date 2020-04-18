@@ -68,3 +68,6 @@ duw () {
 
   rm -rf ${wallpaper_dir}/${img_name} 
 }
+
+# thefuck
+eval $(thefuck --alias)

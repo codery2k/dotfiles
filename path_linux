@@ -2,3 +2,6 @@
 
 # LinuxBrew
 export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+
+# python3.8
+export PATH="/home/linuxbrew/.linuxbrew/opt/python@3.8/bin:$PATH"

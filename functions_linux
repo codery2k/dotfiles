@@ -3,3 +3,7 @@
 set_wallpaper () {
     gsettings set org.gnome.desktop.background picture-uri file://${WALLPAPER_DIR}/${img_name}
 }
+
+set_resolution (){
+    display_resolution="1920x1080"
+}

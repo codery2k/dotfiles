@@ -30,7 +30,9 @@ get_and_save_wallpaper () {
         echo ${WALLPAPER_DIR}
         mkdir -p ${wallpaper_dir}
   fi
-  curl -s -L -o ${WALLPAPER_DIR}/${img_name} "https://source.unsplash.com/featured/2880x1800?hd,wallpaper/$RANDOM"  > /dev/null
+  
+  set_resolution
+  curl -s -L -o ${WALLPAPER_DIR}/${img_name} "https://source.unsplash.com/featured/${display_resolution}?hd,wallpaper/$RANDOM"  > /dev/null
 
   # Some more examples of links
 

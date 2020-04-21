@@ -26,11 +26,11 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
 fi
 
 get_and_save_wallpaper () {
-  if [ ! -d ${wallpaper_dir} ]; then 
-        echo ${wallpaper_dir}
+  if [ ! -d ${WALLPAPER_DIR} ]; then 
+        echo ${WALLPAPER_DIR}
         mkdir -p ${wallpaper_dir}
   fi
-  curl -s -L -o ${wallpaper_dir}/${img_name} "https://source.unsplash.com/featured/2880x1800?hd,wallpaper/$RANDOM"  > /dev/null
+  curl -s -L -o ${WALLPAPER_DIR}/${img_name} "https://source.unsplash.com/featured/2880x1800?hd,wallpaper/$RANDOM"  > /dev/null
 
   # Some more examples of links
 
@@ -43,7 +43,6 @@ get_and_save_wallpaper () {
 
 # Random wallpaper from Unsplash
 ruw (){
-    wallpaper_dir=$HOME/Pictures/Wallpapers
     date_time=$(date +%F_%H-%M-%S)
     img_name=${date_time}.jpg
 
@@ -53,20 +52,18 @@ ruw (){
 
 # Random wallpaper from saved wallpapers 
 rsw () {
-    wallpaper_dir=$HOME/Pictures/Wallpapers
-    img_name=$(ls ${wallpaper_dir} | sort -R | tail -n 1)
+    img_name=$(ls ${WALLPAPER_DIR} | sort -R | tail -n 1)
     
-    echo ${wallpaper_dir}/${img_name}
+    echo ${WALLPAPER_DIR}/${img_name}
 
     $(set_wallpaper)
 }
 
 # Delete wallpaper downloaded from unsplash
 duw () {
-  wallpaper_dir=$HOME/Pictures/Wallpapers
-  img_name=$(ls ${wallpaper_dir} -t | head -n 1)
+  img_name=$(ls ${WALLPAPER_DIR} -t | head -n 1)
 
-  rm -rf ${wallpaper_dir}/${img_name} 
+  rm -rf ${WALLPAPER_DIR}/${img_name} 
 }
 
 # thefuck

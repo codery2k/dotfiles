@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set_wallpaper () {
-    gsettings set org.gnome.desktop.background picture-uri file://${wallpaper_dir}/${img_name}
+    gsettings set org.gnome.desktop.background picture-uri file://${WALLPAPER_DIR}/${img_name}
 }

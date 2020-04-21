@@ -32,7 +32,7 @@ get_and_save_wallpaper () {
   fi
   
   set_resolution
-  curl -s -L -o ${WALLPAPER_DIR}/${img_name} "https://source.unsplash.com/featured/${display_resolution}?hd,wallpaper/$RANDOM"  > /dev/null
+  curl -s -L -o ${WALLPAPER_DIR}/${img_name} "https://source.unsplash.com/featured/${display_resolution}?himalayas,tibet,spiti,ladakh,zanskar,nubra,rohtang,annapurna,everest/$RANDOM"  > /dev/null
 
   # Some more examples of links
 

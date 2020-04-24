@@ -63,7 +63,8 @@ rsw () {
 
 # Delete wallpaper downloaded from unsplash
 duw () {
-  img_name=$(ls ${WALLPAPER_DIR} -t | head -n 1)
+  wallpaper_dir=${WALLPAPER_DIR}
+  img_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
 
   rm -rf ${WALLPAPER_DIR}/${img_name} 
 }

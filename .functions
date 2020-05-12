@@ -25,11 +25,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
     source "$DOTFILES_DIR/functions_linux";
 fi
 
+
 get_and_save_wallpaper () {
-  if [ ! -d ${WALLPAPER_DIR} ]; then 
-        echo ${WALLPAPER_DIR}
-        mkdir -p ${wallpaper_dir}
-  fi
+
   
   set_resolution
   curl -s -L -o ${WALLPAPER_DIR}/${img_name} "https://source.unsplash.com/featured/${display_resolution}?greenland/$RANDOM"  > /dev/null
@@ -44,6 +42,13 @@ get_and_save_wallpaper () {
   # https://source.unsplash.com/featured/2880x1800?scenery
   
 
+}
+
+fix_random_unsplash_wallpaper(){
+    if [ ! -d ${WALLPAPER_DIR} ]; then 
+        echo ${WALLPAPER_DIR}
+        mkdir -p ${wallpaper_dir}
+    fi
 }
 
 # Random wallpaper from Unsplash

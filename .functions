@@ -28,10 +28,9 @@ fi
 
 get_and_save_wallpaper () {
 
-  
   set_resolution
-  curl -s -L -o ${WALLPAPER_DIR}/${img_name} "https://source.unsplash.com/featured/${display_resolution}?greenland/$RANDOM"  > /dev/null
-
+  wget --trust-server-names "https://source.unsplash.com/featured/${display_resolution}?wallpaper/$RANDOM"
+  rename_wallpaper
   # Some more examples of links
 
   # http://source.unsplash.com/random/2880x1800/
@@ -41,9 +40,10 @@ get_and_save_wallpaper () {
   # https://source.unsplash.com/featured/2880x1800?hd
   # https://source.unsplash.com/featured/2880x1800?scenery
   
-
+  
 }
 
+# Fix common issues with random unsplash wallpaper
 fix_random_unsplash_wallpaper(){
     if [ ! -d ${WALLPAPER_DIR} ]; then 
         echo ${WALLPAPER_DIR}
@@ -51,11 +51,14 @@ fix_random_unsplash_wallpaper(){
     fi
 }
 
+# Rename wallpaper downloaded from Unsplash Source API. wget returns a filename with query parameters, this functions strips these query params
+rename_wallpaper(){
+  # add renaming logic
+}
+
 # Random wallpaper from Unsplash
 ruw (){
-    date_time=$(date +%F_%H-%M-%S)
-    img_name=${date_time}.jpg
-
+    img_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
     $(get_and_save_wallpaper)
     $(set_wallpaper) 
 }

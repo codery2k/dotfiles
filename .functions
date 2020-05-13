@@ -25,19 +25,28 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
     source "$DOTFILES_DIR/functions_linux";
 fi
 
+# thefuck
+eval $(thefuck --alias)
+
+# random_saved_wallpaper
+rsw () {
+    img_name=$(ls ${WALLPAPER_DIR} | sort -R | tail -n 1)
+    echo ${WALLPAPER_DIR}/${img_name}
+    $(set_wallpaper)
+}
+
+# random_unsplash_wallpaper
+ruw (){
+    $(get_and_save_wallpaper)
+    img_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
+    $(set_wallpaper) 
+}
+
 # Downlaod a wallpaper from unsplash and rename it 
 get_and_save_wallpaper () {
   set_resolution
   wget --trust-server-names -P ${WALLPAPER_DIR} -q "https://source.unsplash.com/featured/${display_resolution}?wallpaper/$RANDOM"
   rename_wallpaper
-}
-
-# Fix common issues with random_unsplash_wallpaper
-fix_random_unsplash_wallpaper(){
-    if [ ! -d ${WALLPAPER_DIR} ]; then 
-        echo ${WALLPAPER_DIR}
-        mkdir -p ${wallpaper_dir}
-    fi
 }
 
 # Rename wallpaper downloaded from Unsplash Source API. wget returns a filename with query parameters, this functions strips these query params
@@ -48,25 +57,16 @@ rename_wallpaper(){
   mv ${WALLPAPER_DIR}/${current_name} ${WALLPAPER_DIR}/${filename}
 }
 
-# random_unsplash_wallpaper
-ruw (){
-    $(get_and_save_wallpaper)
-    img_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
-    $(set_wallpaper) 
-}
-
-# random_saved_wallpaper
-rsw () {
-    img_name=$(ls ${WALLPAPER_DIR} | sort -R | tail -n 1)
-    echo ${WALLPAPER_DIR}/${img_name}
-    $(set_wallpaper)
-}
-
 # delete_unsplash_wallpaper
 duw () {
   img_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
   rm -rf ${WALLPAPER_DIR}/${img_name} 
 }
 
-# thefuck
-eval $(thefuck --alias)
+# Fix common issues with random_unsplash_wallpaper
+fix_random_unsplash_wallpaper(){
+    if [ ! -d ${WALLPAPER_DIR} ]; then 
+        echo ${WALLPAPER_DIR}
+        mkdir -p ${wallpaper_dir}
+    fi
+}

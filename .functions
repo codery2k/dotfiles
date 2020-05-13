@@ -29,7 +29,7 @@ fi
 get_and_save_wallpaper () {
 
   set_resolution
-  wget --trust-server-names "https://source.unsplash.com/featured/${display_resolution}?wallpaper/$RANDOM"
+  wget --trust-server-names -P ${WALLPAPER_DIR} -q "https://source.unsplash.com/featured/${display_resolution}?wallpaper/$RANDOM"
   rename_wallpaper
   # Some more examples of links
 
@@ -53,7 +53,13 @@ fix_random_unsplash_wallpaper(){
 
 # Rename wallpaper downloaded from Unsplash Source API. wget returns a filename with query parameters, this functions strips these query params
 rename_wallpaper(){
-  # add renaming logic
+  current_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
+  # echo $current_name
+  split_name="$(cut -d'?' -f1 <<<${current_name})"
+  # echo $split_name
+  filename=${split_name}".jpg"
+  # echo $filename
+  mv ${WALLPAPER_DIR}/${current_name} ${WALLPAPER_DIR}/${filename}
 }
 
 # Random wallpaper from Unsplash

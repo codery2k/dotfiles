@@ -25,25 +25,14 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
     source "$DOTFILES_DIR/functions_linux";
 fi
 
-
+# Downlaod a wallpaper from unsplash and rename it 
 get_and_save_wallpaper () {
-
   set_resolution
   wget --trust-server-names -P ${WALLPAPER_DIR} -q "https://source.unsplash.com/featured/${display_resolution}?wallpaper/$RANDOM"
   rename_wallpaper
-  # Some more examples of links
-
-  # http://source.unsplash.com/random/2880x1800/
-  # http://source.unsplash.com/2880x1800/?cool,wallpaper
-  # http://source.unsplash.com/collection/1446722/2880x1800/
-  # https://source.unsplash.com/featured/2880x1800?wallpaper
-  # https://source.unsplash.com/featured/2880x1800?hd
-  # https://source.unsplash.com/featured/2880x1800?scenery
-  
-  
 }
 
-# Fix common issues with random unsplash wallpaper
+# Fix common issues with random_unsplash_wallpaper
 fix_random_unsplash_wallpaper(){
     if [ ! -d ${WALLPAPER_DIR} ]; then 
         echo ${WALLPAPER_DIR}
@@ -54,35 +43,28 @@ fix_random_unsplash_wallpaper(){
 # Rename wallpaper downloaded from Unsplash Source API. wget returns a filename with query parameters, this functions strips these query params
 rename_wallpaper(){
   current_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
-  # echo $current_name
   split_name="$(cut -d'?' -f1 <<<${current_name})"
-  # echo $split_name
   filename=${split_name}".jpg"
-  # echo $filename
   mv ${WALLPAPER_DIR}/${current_name} ${WALLPAPER_DIR}/${filename}
 }
 
-# Random wallpaper from Unsplash
+# random_unsplash_wallpaper
 ruw (){
     $(get_and_save_wallpaper)
     img_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
     $(set_wallpaper) 
 }
 
-# Random wallpaper from saved wallpapers 
+# random_saved_wallpaper
 rsw () {
     img_name=$(ls ${WALLPAPER_DIR} | sort -R | tail -n 1)
-    
     echo ${WALLPAPER_DIR}/${img_name}
-
     $(set_wallpaper)
 }
 
-# Delete wallpaper downloaded from unsplash
+# delete_unsplash_wallpaper
 duw () {
-  wallpaper_dir=${WALLPAPER_DIR}
   img_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
-
   rm -rf ${WALLPAPER_DIR}/${img_name} 
 }
 

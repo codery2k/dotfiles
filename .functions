@@ -64,8 +64,8 @@ rename_wallpaper(){
 
 # Random wallpaper from Unsplash
 ruw (){
-    img_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
     $(get_and_save_wallpaper)
+    img_name=$(ls -t ${WALLPAPER_DIR} | head -n 1)
     $(set_wallpaper) 
 }
 

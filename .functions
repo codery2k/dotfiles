@@ -37,9 +37,7 @@ rsw () {
 
 # random_unsplash_wallpaper
 ruw () {
-  $(get_and_save_wallpaper)
-  img_name=$(ls -t $WALLPAPER_DIR | head -n 1)
-  $(set_wallpaper) 
+  $(${DOTFILES_DIR}/random_unsplash_wallpaper.py)
 }
 
 # Downlaod a wallpaper from unsplash and rename it 

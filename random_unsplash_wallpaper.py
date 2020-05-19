@@ -12,21 +12,20 @@ MACOS_DISPLAY_RESOLUTION="2880x1800"
 LINUX_DISPLAY_RESOLUTION="1920x1080"
 
 
-
 def get_os():
     uname_output=subprocess.run("uname", capture_output=True, text=True)
     # TODO remove all occurrences of following check and set a common env var
     if(uname_output.stdout.strip()=="Darwin"):
-        os="macos"
+        os_arch="macos"
     # TODO replace expr with python processing of uname command
     elif (uname_output.stdout.strip()=="Linux"):
-        os="linux"
-    return os
+        os_arch="linux"
+    return os_arch
 
-def get_display_resolution(os):
-    if(os=="macos"):
+def get_display_resolution(os_arch):
+    if(os_arch=="macos"):
         display_resolution=MACOS_DISPLAY_RESOLUTION
-    elif(os=="linux"):
+    elif(os_arch=="linux"):
         display_resolution=LINUX_DISPLAY_RESOLUTION
     return display_resolution
 
@@ -41,17 +40,28 @@ def download_image(display_resolution):
         with open(WALLPAPER_DIR+"/"+filename, 'wb') as f:
             f.write(response.content)
     else:
-        print("Wallpaper not downloaded. Request to unsplash returned with status code "+response.status_code)
+        print("Wallpaper not downloaded. Request to unsplash returned with status code "+str(response.status_code))
     return filename
 
-def set_wallpaper():
-    os.set
+def set_wallpaper(filename, os_arch):
+    if(os_arch=="macos"):
+        set_wallpaper_for_macos(filename)
+    elif(os_arch=="linux"):
+        set_wallpaper_for_linux(filename)
+
+def set_wallpaper_for_macos(filename):
+    # subprocess.run(["osascript", "-e", "\"", "tell", "application", "\"System Events\"", "to", "set", "picture", "of", "every", "desktop", "to", "\"", WALLPAPER_DIR, "/", filename, "\"", "\""], executable='/bin/bash')
+    applescript="""osascript -e \"tell application  \\"System Events\\" to set picture of every desktop to \\\"""" +WALLPAPER_DIR+"/"+filename+ """\\"  \" """
+    subprocess.run(applescript, shell=True)
+    subprocess.run("killall Dock", shell=True)
+
+def set_wallpaper_for_linux(filename):
+    pass
 
 if __name__ == "__main__":
-    os=get_os()
+    os_arch=get_os()
     # print(os)
-    display_resolution=get_display_resolution(os)
+    display_resolution=get_display_resolution(os_arch)
     # print(display_resolution)
-    download_image(display_resolution)
-    process_image()
-    set_wallpaper()
+    filename=download_image(display_resolution)
+    set_wallpaper(filename, os_arch)

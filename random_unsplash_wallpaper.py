@@ -33,18 +33,19 @@ def get_display_resolution(os):
 def download_image(display_resolution):
     random_int=random.randrange(10000)
     download_url=UNSPLASH_SOURCE_API_URL+display_resolution+"?"+SEARCH_STRING+"/"+str(random_int)
-    print(download_url)
+    # print(download_url)
     response=requests.get(download_url)
-    redirect_url=response.url
-    filename=redirect_url.replace(UNSPLASH_IMAGE_URL,'').split('?')[0]+".jpg"
-    with open(WALLPAPER_DIR+"/"+filename, 'wb') as f:
-        f.write(response.content)
-
-def process_image():
-    pass
+    if (response.status_code==requests.codes.ok):
+        redirect_url=response.url
+        filename=redirect_url.replace(UNSPLASH_IMAGE_URL,'').split('?')[0]+".jpg"
+        with open(WALLPAPER_DIR+"/"+filename, 'wb') as f:
+            f.write(response.content)
+    else:
+        print("Wallpaper not downloaded. Request to unsplash returned with status code "+response.status_code)
+    return filename
 
 def set_wallpaper():
-    pass
+    os.set
 
 if __name__ == "__main__":
     os=get_os()

@@ -6,6 +6,7 @@ import random
 
 WALLPAPER_DIR=os.getenv("WALLPAPER_DIR", default="$HOME/Pictures/Wallpapers")
 UNSPLASH_SOURCE_API_URL= "https://source.unsplash.com/featured/"
+UNSPLASH_IMAGE_URL="https://images.unsplash.com/"
 SEARCH_STRING="wallpaper"
 MACOS_DISPLAY_RESOLUTION="2880x1800"
 LINUX_DISPLAY_RESOLUTION="1920x1080"
@@ -18,8 +19,8 @@ def get_os():
     if(uname_output.stdout.strip()=="Darwin"):
         os="macos"
     # TODO replace expr with python processing of uname command
-    # elif (subprocess.run("expr substr $(uname -s) 1 5")=="Linux"):
-    #     os="linux"
+    elif (uname_output.stdout.strip()=="Linux"):
+        os="linux"
     return os
 
 def get_display_resolution(os):
@@ -34,7 +35,10 @@ def download_image(display_resolution):
     download_url=UNSPLASH_SOURCE_API_URL+display_resolution+"?"+SEARCH_STRING+"/"+str(random_int)
     print(download_url)
     response=requests.get(download_url)
-    print("wait")
+    redirect_url=response.url
+    filename=redirect_url.replace(UNSPLASH_IMAGE_URL,'').split('?')[0]+".jpg"
+    with open(WALLPAPER_DIR+"/"+filename, 'wb') as f:
+        f.write(response.content)
 
 def process_image():
     pass

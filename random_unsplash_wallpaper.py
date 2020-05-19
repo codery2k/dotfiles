@@ -50,13 +50,13 @@ def set_wallpaper(filename, os_arch):
         set_wallpaper_for_linux(filename)
 
 def set_wallpaper_for_macos(filename):
-    # subprocess.run(["osascript", "-e", "\"", "tell", "application", "\"System Events\"", "to", "set", "picture", "of", "every", "desktop", "to", "\"", WALLPAPER_DIR, "/", filename, "\"", "\""], executable='/bin/bash')
     applescript="""osascript -e \"tell application  \\"System Events\\" to set picture of every desktop to \\\"""" +WALLPAPER_DIR+"/"+filename+ """\\"  \" """
     subprocess.run(applescript, shell=True)
     subprocess.run("killall Dock", shell=True)
 
 def set_wallpaper_for_linux(filename):
-    pass
+    script="""gsettings set org.gnome.desktop.background picture-uri file://"""+WALLPAPER_DIR+"/"+filename
+    subprocess.run(script, shell=True)
 
 if __name__ == "__main__":
     os_arch=get_os()

@@ -4,6 +4,9 @@ import subprocess
 WALLPAPER_DIR=""
 UNSPLASH_SOURCE_API_URL= ""
 SEARCH_STRING=""
+MACOS_DISPLAY_RESOLUTION="2880x1800"
+LINUX_DISPLAY_RESOLUTION="1920x1080"
+
 
 
 def get_os():
@@ -16,8 +19,13 @@ def get_os():
     #     os="linux"
     return os
 
-def get_display_resolution():
-    pass
+def get_display_resolution(os):
+    if(os=="macos"):
+        display_resolution=MACOS_DISPLAY_RESOLUTION
+    elif(os=="linux"):
+        display_resolution=LINUX_DISPLAY_RESOLUTION
+    return display_resolution
+
 
 def download_image():
     pass
@@ -31,7 +39,8 @@ def set_wallpaper():
 if __name__ == "__main__":
     os=get_os()
     print(os)
-    get_display_resolution()
+    display_resolution=get_display_resolution(os)
+    print(display_resolution)
     download_image()
     process_image()
     set_wallpaper()

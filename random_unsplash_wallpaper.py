@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 import subprocess
+import os
+import requests
+import random
 
-WALLPAPER_DIR=""
-UNSPLASH_SOURCE_API_URL= ""
-SEARCH_STRING=""
+WALLPAPER_DIR=os.getenv("WALLPAPER_DIR", default="$HOME/Pictures/Wallpapers")
+UNSPLASH_SOURCE_API_URL= "https://source.unsplash.com/featured/"
+SEARCH_STRING="wallpaper"
 MACOS_DISPLAY_RESOLUTION="2880x1800"
 LINUX_DISPLAY_RESOLUTION="1920x1080"
 
@@ -26,9 +29,12 @@ def get_display_resolution(os):
         display_resolution=LINUX_DISPLAY_RESOLUTION
     return display_resolution
 
-
-def download_image():
-    pass
+def download_image(display_resolution):
+    random_int=random.randrange(10000)
+    download_url=UNSPLASH_SOURCE_API_URL+display_resolution+"?"+SEARCH_STRING+"/"+str(random_int)
+    print(download_url)
+    response=requests.get(download_url)
+    print("wait")
 
 def process_image():
     pass
@@ -38,9 +44,9 @@ def set_wallpaper():
 
 if __name__ == "__main__":
     os=get_os()
-    print(os)
+    # print(os)
     display_resolution=get_display_resolution(os)
-    print(display_resolution)
-    download_image()
+    # print(display_resolution)
+    download_image(display_resolution)
     process_image()
     set_wallpaper()

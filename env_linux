@@ -1,5 +1,10 @@
 #! /usr/bin/env bash
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Default wallpaper directory for wallpaper functions
+export WALLPAPER_DIR=$HOME/Pictures/Wallpapers
+
 # LinuxBrew
 export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
 export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";

@@ -1,6 +1,6 @@
-if [ ! "$(uname)" == "Darwin" ]
+if [[ ! "$(uname)" == "Darwin" ]]
 then
-    if [ "$(uname -r)"=~"microsoft" ] 
+    if [[ "$(uname -r)" =~ "microsoft" ]] 
     then 
         export OS_VARIANT='wsl' 
     else

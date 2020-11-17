@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-if [ "$(uname)" == "Darwin" ]; then #macOS
+if [[ $OS_VARIANT == "mac" ]]; then 
     source "$DOTFILES_DIR/path_macos";
-    # Source macos specific paths
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
+elif [[ $OS_VARIANT == "linux" ]]; then 
     source "$DOTFILES_DIR/path_linux";
+elif [[ $OS_VARIANT == "wsl" ]]; then
+    source "$DOTFILES_DIR/path_wsl";
 fi

@@ -40,7 +40,7 @@ alias hosts="sudo $EDITOR /etc/hosts"
 alias printenv='printenv | sort'
 
 # If you use VSCodium instead of VSCode
-alias code="codium"
+# alias code="codium"
 
 
 if [[ $OS_VARIANT == "mac" ]]; then 

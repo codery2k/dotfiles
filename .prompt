@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-PS1="\u"; #username
-PS1+=" | ";
-PS1+="\d, \T"; #Mon 1 Jan, HH::MM:SS
-PS1+=" | ";
-PS1+="\w"; #working directory full path
-PS1+=" \$ ";
-export PS1;
-
-
+PS1="\[\033[38;5;226m\]" # color
+PS1="\u"                 # username
+PS1+=" | "
+PS1+="\d, \T" # Mon 1 Jan, HH::MM:SS
+PS1+=" | "
+PS1+="\w" # working directory full path
+PS1+=" \$ "
+export PS1

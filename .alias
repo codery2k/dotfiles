@@ -6,8 +6,8 @@ alias ...="cd ../.."
 alias ~="cd ~"
 
 # List
-alias l="ls -lAh"  
-alias ll="du -sh *"  
+alias l="ls -lAh"
+alias ll="du -sh *"
 
 # Reset
 alias rs="clear && printf '\e[3J'"
@@ -26,12 +26,12 @@ alias g="git"
 
 # Request using GET, POST, etc. method
 for METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-  alias "$METHOD"="lwp-request -m '$METHOD'"
+    alias "$METHOD"="lwp-request -m '$METHOD'"
 done
 unset METHOD
 
 # Hosts
-if [ -z "$EDITOR" ]; then 
+if [ -z "$EDITOR" ]; then
     EDITOR=nano # Using nano to open hosts file if no editor is defined
 fi
 alias hosts="sudo $EDITOR /etc/hosts"
@@ -42,11 +42,10 @@ alias printenv='printenv | sort'
 # If you use VSCodium instead of VSCode
 # alias code="codium"
 
-
-if [[ $OS_VARIANT == "mac" ]]; then 
-    source "$DOTFILES_DIR/alias_macos";
-elif [[ $OS_VARIANT == "linux" ]]; then 
-    source "$DOTFILES_DIR/alias_linux";
+if [[ $OS_VARIANT == "mac" ]]; then
+    source "$DOTFILES_DIR/alias_macos"
+elif [[ $OS_VARIANT == "linux" ]]; then
+    source "$DOTFILES_DIR/alias_linux"
 elif [[ $OS_VARIANT == "wsl" ]]; then
-    source "$DOTFILES_DIR/alias_wsl";
+    source "$DOTFILES_DIR/alias_wsl"
 fi

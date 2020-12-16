@@ -2,3 +2,4 @@
 
 alias subl='/mnt/c/Program\ Files/Sublime\ Text\ 3/subl.exe'
 
+alias brave='$WIN_HOME/AppData/Local/BraveSoftware/Brave-Browser/Application/brave.exe'

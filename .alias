@@ -6,8 +6,8 @@ alias ...="cd ../.."
 alias ~="cd ~"
 
 # List
-alias l="ls -lah"
-alias ll="ls -ll"
+alias l="ls -lAh"
+alias ll="du -sh *"
 
 # Reset
 alias rs="clear && printf '\e[3J'"

@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-
 if [ "$(uname)" == "Darwin" ]; then #macOS
-    source "$DOTFILES_DIR/completion_macos";
+    source "$DOTFILES_DIR/completion_macos"
 # elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
 #     # Source Linux specific completions
 fi
+
+# Gitlab CLI . https://zaquestion.github.io/lab/
+source <(lab completion)

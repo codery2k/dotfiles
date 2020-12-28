@@ -7,4 +7,4 @@ if [ "$(uname)" == "Darwin" ]; then #macOS
 fi
 
 # Gitlab CLI . https://zaquestion.github.io/lab/
-source <(lab completion)
+source <(lab completion bash)

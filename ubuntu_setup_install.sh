@@ -82,7 +82,7 @@ wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_insta
 sudo apt install -y vlc
 
 # telegram
-sudo apt install telegram
+sudo snap install telegram-desktop
 
 # calibre
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin

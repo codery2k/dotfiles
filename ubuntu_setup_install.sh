@@ -100,3 +100,9 @@ snap install foliate
 
 # - workspacer -> awesomewm/tiling window manager
 # }
+
+# gitlab cli
+curl -s https://raw.githubusercontent.com/zaquestion/lab/master/install.sh | sudo bash
+
+# github cli
+brew install gh

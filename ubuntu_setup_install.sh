@@ -93,14 +93,6 @@ sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | 
 # foliate
 snap install foliate
 
-# TODO :{
-# shortcuts
-
-# - bluetooth CA+b
-
-# - workspacer -> awesomewm/tiling window manager
-# }
-
 # gitlab cli
 curl -s https://raw.githubusercontent.com/zaquestion/lab/master/install.sh | sudo bash
 
@@ -109,3 +101,9 @@ brew install gh
 
 # gdebi
 sudo apt install gdebi
+
+# bluetooth toggle keyboard shortcut
+https://askubuntu.com/a/1144599
+
+# tiling window manager for gnome-wayland
+https://github.com/pop-os/shell

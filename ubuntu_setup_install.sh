@@ -106,3 +106,6 @@ curl -s https://raw.githubusercontent.com/zaquestion/lab/master/install.sh | sud
 
 # github cli
 brew install gh
+
+# gdebi
+sudo apt install gdebi

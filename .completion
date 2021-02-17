@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 
+# Gitlab CLI . https://zaquestion.github.io/lab/
+source <(lab completion bash)
+
+# homebrew
+if is_executable brew; then
+    HOMEBREW_PREFIX="$(brew --prefix)"
+    if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+        source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+    else
+        for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+            [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+        done
+    fi
+fi
+
 if [ "$(uname)" == "Darwin" ]; then #macOS
     source "$DOTFILES_DIR/completion_macos"
 # elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
 #     # Source Linux specific completions
 fi
-
-# Gitlab CLI . https://zaquestion.github.io/lab/
-source <(lab completion bash)

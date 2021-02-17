@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias chrome='open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 alias whereis='which'
 
@@ -15,4 +15,3 @@ alias cask="brew cask"
 
 # Sublime
 alias subl="sublime"
-

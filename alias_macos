@@ -18,3 +18,5 @@ alias cask="brew cask"
 
 # Sublime
 alias subl="sublime"
+
+alias brew-doctor="sudo chown -R $(whoami):admin  /usr/local/* && brew doctor"

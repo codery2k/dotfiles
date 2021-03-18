@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-alias chrome='open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias chrome='open -na "Google Chrome"' # '-n' is for opening new instance
+alias c='chrome'
+alias chrome-beta='open -na "Google Chrome Beta"' # '-n' is for opening new instance
+alias cb='chrome-beta'
 
 alias whereis='which'
 

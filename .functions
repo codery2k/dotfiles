@@ -12,8 +12,8 @@ prepend-path() {
 
 # Switch long/short prompt
 ps0() {
-  unset PROMPT_COMMAND
-  PS1='$ '
+  PS1="\[\033[38;5;226m\]"
+  PS1+='$ '
 }
 ps1() {
   source "$DOTFILES_DIR"/.prompt

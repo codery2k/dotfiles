@@ -2,7 +2,7 @@
 
 # Check if executable exists
 is_executable() {
-  type "$1" > /dev/null 2>&1
+  type "$1" >/dev/null 2>&1
 }
 
 # Add to path
@@ -20,54 +20,54 @@ ps1() {
 }
 
 if [ "$(uname)" == "Darwin" ]; then #macOS
-    source "$DOTFILES_DIR/functions_macos";
+  source "$DOTFILES_DIR/functions_macos"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
-    source "$DOTFILES_DIR/functions_linux";
+  source "$DOTFILES_DIR/functions_linux"
 fi
 
 # thefuck
 eval $(thefuck --alias)
 
 # random_saved_wallpaper
-rsw () {
-    img_name=$(ls $WALLPAPER_DIR | sort -R | tail -n 1)
-    echo ${WALLPAPER_DIR}/${img_name}
-    $(set_wallpaper)
+rsw() {
+  img_name=$(ls $WALLPAPER_DIR | sort -R | tail -n 1)
+  echo ${WALLPAPER_DIR}/${img_name}
+  $(set_wallpaper)
 }
 
 # random_unsplash_wallpaper
-ruw () {
+ruw() {
   $(get_and_save_wallpaper)
   img_name=$(ls -t $WALLPAPER_DIR | head -n 1)
-  $(set_wallpaper) 
+  $(set_wallpaper)
 }
 
-# Downlaod a wallpaper from unsplash and rename it 
-get_and_save_wallpaper () {
+# Downlaod a wallpaper from unsplash and rename it
+get_and_save_wallpaper() {
   set_resolution
-  wget_output=$(wget --trust-server-names -nv -P $WALLPAPER_DIR "https://source.unsplash.com/featured/$display_resolution?wallpaper/$RANDOM" 2>&1) # download file and set wget_output from stderr  
+  wget_output=$(wget --trust-server-names -nv -P $WALLPAPER_DIR "https://source.unsplash.com/featured/$display_resolution?wallpaper/$RANDOM" 2>&1) # download file and set wget_output from stderr
   rename_wallpaper
 }
 
 # Rename wallpaper downloaded from Unsplash Source API. wget returns a filename with query parameters, this functions strips these query params
 rename_wallpaper() {
-  IFS=' ' # set delimiter to space
-  read -ra strings <<< "$wget_output" # extract words from name to array
+  IFS=' '                            # set delimiter to space
+  read -ra strings <<<"$wget_output" # extract words from name to array
   current_name=$(echo "${strings[5]}" | tr -d '"')
-  img_name=$(echo "${strings[5]}" | tr -d '"' | cut -d'?' -f1)".jpg"  # echo $split_name
+  img_name=$(echo "${strings[5]}" | tr -d '"' | cut -d'?' -f1)".jpg" # echo $split_name
   mv $current_name $img_name
 }
 
 # delete_unsplash_wallpaper
-duw () {
+duw() {
   img_name=$(ls -t $WALLPAPER_DIR | head -n 1)
-  rm -rf ${WALLPAPER_DIR}/${img_name} 
+  rm -rf ${WALLPAPER_DIR}/${img_name}
 }
 
 # Fix common issues with random_unsplash_wallpaper
 fix_random_unsplash_wallpaper() {
-    if [ ! -d $WALLPAPER_DIR ]; then 
-        echo $WALLPAPER_DIR
-        mkdir -p $WALLPAPER_DIR
-    fi
+  if [ ! -d $WALLPAPER_DIR ]; then
+    echo $WALLPAPER_DIR
+    mkdir -p $WALLPAPER_DIR
+  fi
 }

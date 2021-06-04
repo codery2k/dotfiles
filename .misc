@@ -1,1 +1,6 @@
 #!/usr/bin/env bash
+
+if [ "$TERM_PROGRAM" == "vscode" ]; then #macOS
+    # echo "vscode"
+    ps0
+fi

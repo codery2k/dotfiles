@@ -1,9 +1,26 @@
 #!/usr/bin/env bash
 
 alias chrome='open -na "Google Chrome"' # '-n' is for opening new instance
-alias c='chrome'
-alias chrome-beta='open -na "Google Chrome Beta"' # '-n' is for opening new instance
-alias cb='chrome-beta'
+
+alias chrome-personal='chrome --args --profile-directory="Profile 3"' # '-n' is for opening new instance
+alias chrome-incognito='chrome --args --incognito --profile-directory="Profile 3"' # '-n' is for opening new instance
+alias chrome-work='chrome --args --profile-directory="Profile 1"' # '-n' is for opening new instance
+alias chrome-work-incognito='chrome --args --incognito --profile-directory="Profile 1"' # '-n' is for opening new instance
+
+alias brave='open -na "Brave Browser"'
+alias vivaldi='open -na "Vivaldi"'
+
+alias c='chrome-personal'
+alias ci='chrome-incognito'
+alias cw="chrome-work"
+alias cwi="chrome-work-incognito"
+
+alias google-tasks="c https://tasks.google.com/embed/?origin=https://mail.google.com"
+alias gt="google-tasks"
+
+alias y="cw https://www.youtube.com/feed/subscriptions"
+alias yt="c https://www.youtube.com/feed/subscriptions"
+
 
 alias whereis='which'
 

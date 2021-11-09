@@ -10,7 +10,7 @@ alias l="ls -lAh"
 alias ll="du -sh *"
 
 # Reset
-alias rs="clear && printf '\e[3J'"
+alias r="clear && printf '\e[3J'"
 
 # Reload
 alias reload="source ~/.bash_profile"

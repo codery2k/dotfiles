@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-if [ "$TERM_PROGRAM" == "vscode" ]; then #macOS
-    # echo "vscode"
-    ps0
-fi
+## Disable ps0 on vscode since running term in editor tab 
+# if [ "$TERM_PROGRAM" == "vscode" ]; then #macOS
+#     # echo "vscode"
+#     ps0
+# fi

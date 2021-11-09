@@ -26,7 +26,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then #Linux
 fi
 
 # thefuck
-eval $(thefuck --alias)
+## Temporarily disable thefuck for significant performance of .bash_profile
+# eval $(thefuck --alias)
 
 # random_saved_wallpaper
 rsw() {

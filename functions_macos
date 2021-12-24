@@ -8,3 +8,12 @@ set_wallpaper () {
 set_resolution (){
     display_resolution="2880x1800"
 }
+
+
+chrome-search() {
+  open -na "Google Chrome" --args --profile-directory="Profile 3" "? $*"
+}
+
+chrome-work-search() {
+  open -na "Google Chrome" --args --profile-directory="Profile 1" "? $*"
+}

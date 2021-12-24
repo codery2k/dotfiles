@@ -15,8 +15,12 @@ alias ci='chrome-incognito'
 alias cw="chrome-work"
 alias cwi="chrome-work-incognito"
 
-alias google-tasks="c https://tasks.google.com/embed/?origin=https://mail.google.com"
-alias gt="google-tasks"
+alias cs="chrome-search"
+alias cws="chrome-work-search"
+
+
+alias google-tasks="c --new-window https://tasks.google.com/embed/?origin=https://mail.google.com"
+alias gt="google-tasks && sleep .5 && osascript -e 'tell first window of application \"Google Chrome\" to set bounds to {100, 0, 550, 1000}'"
 
 alias y="cw https://www.youtube.com/feed/subscriptions"
 alias yt="c https://www.youtube.com/feed/subscriptions"
@@ -37,3 +41,6 @@ alias cask="brew cask"
 alias subl="sublime"
 
 alias brew-doctor="sudo chown -R $(whoami):admin  /usr/local/* && brew doctor"
+
+alias python='python3'
+alias pip='pip3'

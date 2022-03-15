@@ -20,10 +20,11 @@ alias cws="chrome-work-search"
 
 
 alias google-tasks="c --new-window https://tasks.google.com/embed/?origin=https://mail.google.com"
-alias gt="google-tasks && sleep .5 && osascript -e 'tell first window of application \"Google Chrome\" to set bounds to {100, 0, 550, 1000}'"
+alias gt="google-tasks && sleep .8 && osascript -e 'tell first window of application \"Google Chrome\" to set bounds to {100, 0, 550, 1000}'"
 
-alias y="cw https://www.youtube.com/feed/subscriptions"
-alias yt="c https://www.youtube.com/feed/subscriptions"
+alias y="cw --new-window https://www.youtube.com/feed/subscriptions"
+alias yt="c --new-window https://www.youtube.com/feed/subscriptions"
+alias yp="c --new-window https://www.youtube.com/playlist?list=PLkleEIaNkCLTkdrnBRNb0NJwO30Wi_-9C"
 
 
 alias whereis='which'

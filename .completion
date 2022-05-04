@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Gitlab CLI . https://zaquestion.github.io/lab/
-source <(lab completion bash)
+# source <(lab completion bash)
 
 # homebrew
 if is_executable brew; then

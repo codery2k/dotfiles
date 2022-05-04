@@ -25,7 +25,7 @@ alias gt="google-tasks && sleep .8 && osascript -e 'tell first window of applica
 alias y="cw --new-window https://www.youtube.com/feed/subscriptions"
 alias yt="c --new-window https://www.youtube.com/feed/subscriptions"
 alias yp="c --new-window https://www.youtube.com/playlist?list=PLkleEIaNkCLTkdrnBRNb0NJwO30Wi_-9C"
-
+alias ytt="y && yt"
 
 alias whereis='which'
 

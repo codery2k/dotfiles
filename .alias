@@ -25,10 +25,10 @@ alias path='echo -e ${PATH//:/\\n} | sort'
 alias g="git"
 
 # Request using GET, POST, etc. method
-for METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-    alias "$METHOD"="lwp-request -m '$METHOD'"
-done
-unset METHOD
+# for METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+#     alias "$METHOD"="lwp-request -m '$METHOD'"
+# done
+# unset METHOD
 
 # Hosts
 if [ -z "$EDITOR" ]; then

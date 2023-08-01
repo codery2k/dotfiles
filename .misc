@@ -5,3 +5,30 @@
 #     # echo "vscode"
 #     ps0
 # fi
+
+# export LOG_LEVEL="WARNING"
+export LOG_LEVEL="INFO"
+# export LOG_LEVEL="DEBUG"
+export LOG_TO_FILE=0
+# export LOG_LEVEL="ERROR"
+export S3_BUCKET_NAME="folio-ecourts-local"
+export HC_CASE_QUEUES=1
+export SC_CASE_QUEUES=1
+export CESTAT_CASE_QUEUES=1
+export DHC_CASE_QUEUES=1
+export DC_CASE_QUEUES=1
+export INFINITE_FREE_TRIAL=1
+# export CESTAT_CASE_QUEUES=0
+
+alias purge-all-queues="rabbitmqctl list_queues -q -s name | awk '{ print $1 }' | xargs -L1 rabbitmqctl purge_queue"
+alias delete-all-queues="rabbitmqctl list_queues -q -s name | awk '{ print $1 }' | xargs -L1 rabbitmqctl delete_queue"
+alias queues="rabbitmqctl list_queues -q -s   --formatter table consumers messages name | sort  -k3"
+alias q="queues"
+
+export PATH=/Users/saurabh/.nimble/bin:$PATH
+export PATH=/Users/saurabh/.choosenim/toolchains/nim-1.6.6/bin:$PATH
+
+# export TESSDATA_PREFIX=/Users/saurabh/temp/tessdata-4.1.0
+
+export PYTHONPATH=/Users/saurabh/source/python/ecourts
+export SCRAPY_SETTINGS_MODULE=ecourts.shared.settings

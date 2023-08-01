@@ -11,9 +11,5 @@ set_resolution (){
 
 
 chrome-search() {
-  open -na "Google Chrome" --args --profile-directory="Profile 3" "? $*"
-}
-
-chrome-work-search() {
-  open -na "Google Chrome" --args --profile-directory="Profile 1" "? $*"
+  open -na "Google Chrome" --args --new-window "? $*"
 }

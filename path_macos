@@ -2,6 +2,36 @@
 
 # export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 
+# export PATH="/usr/local/opt/curl/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/curl/lib"
+# export CPPFLAGS="-I/usr/local/opt/curl/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig"
+# export LD_LIBRARY_PATH="/usr/local/opt/curl/lib"
+# export LIBRARY_PATH="/usr/local/opt/curl/lib"
+
+# export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+# export LDFLAGS="$LDFLAGS -L/usr/local/opt/openssl@3/lib"
+# export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/openssl@3/include"
+# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/openssl@3/lib/pkgconfig"
+# export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/opt/openssl/lib"
+# export CPATH="/usr/local/opt/openssl/include"
+
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PYCURL_SSL_LIBRARY=openssl
+export LDFLAGS="-L/usr/local/opt/curl/lib"
+export CPPFLAGS="-I/usr/local/opt/curl/include"
+
 export PATH="/usr/local/sbin:$PATH"
 
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/postgresql@13/lib"
+export CPPFLAGS="-I/usr/local/opt/postgresql@13/include"
+export PKG_CONFIG_PATH="/usr/local/opt/postgresql@13/lib/pkgconfig"
+
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/libpq/lib"
+export CPPFLAGS="-I/usr/local/opt/libpq/include"
+export PKG_CONFIG_PATH="/usr/local/opt/libpq/lib/pkgconfig"

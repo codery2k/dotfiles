@@ -1,47 +1,76 @@
 #!/usr/bin/env bash
 
-alias chrome='open -na "Google Chrome"' # '-n' is for opening new instance
-
-alias chrome-personal='chrome --args --profile-directory="Profile 3"' # '-n' is for opening new instance
-alias chrome-incognito='chrome --args --incognito --profile-directory="Profile 3"' # '-n' is for opening new instance
-alias chrome-work='chrome --args --profile-directory="Profile 1"' # '-n' is for opening new instance
-alias chrome-work-incognito='chrome --args --incognito --profile-directory="Profile 1"' # '-n' is for opening new instance
-
-alias brave='open -na "Brave Browser"'
-alias vivaldi='open -na "Vivaldi"'
-
-alias c='chrome-personal'
-alias ci='chrome-incognito'
-alias cw="chrome-work"
-alias cwi="chrome-work-incognito"
-
-alias cs="chrome-search"
-alias cws="chrome-work-search"
-
-
-alias google-tasks="c --new-window https://tasks.google.com/embed/?origin=https://mail.google.com"
-alias gt="google-tasks && sleep .8 && osascript -e 'tell first window of application \"Google Chrome\" to set bounds to {100, 0, 550, 1000}'"
-
-alias y="cw --new-window https://www.youtube.com/feed/subscriptions"
-alias yt="c --new-window https://www.youtube.com/feed/subscriptions"
-alias yp="c --new-window https://www.youtube.com/playlist?list=PLkleEIaNkCLTkdrnBRNb0NJwO30Wi_-9C"
-alias ytt="y && yt"
-
 alias whereis='which'
+alias twm='brew services start yabai && brew services stop yabai'
+
+alias python='python3.9'
+alias pip='pip3.9'
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
 # Copy pwd to clipboard
 alias cpwd="pwd|tr -d '\n'|pbcopy"
-
 # Cask
 alias cask="brew cask"
-
 # Sublime
 alias subl="sublime"
 
-alias brew-doctor="sudo chown -R $(whoami):admin  /usr/local/* && brew doctor"
 
-alias python='python3'
-alias pip='pip3'
+alias chrome='open -na "Google Chrome" --args' # '-n' is for opening new instance
+alias chrome-incognito='chrome --args --incognito' # '-n' is for opening new instance
+
+alias c='chrome'
+alias ci='chrome-incognito'
+
+alias yp="c --new-window https://www.youtube.com/feed/subscriptions"
+
+alias cs="chrome-search"
+alias g="c --new-window https://mail.google.com/mail/u/3/#inbox"
+
+
+alias firefox='/Applications/Firefox.app/Contents/MacOS/firefox '
+alias f='(firefox > /dev/null 2>&1 < /dev/null &)'
+
+alias y="(firefox -new-window https://www.youtube.com/feed/subscriptions -foreground > /dev/null 2>&1 < /dev/null &)"
+# alias y=f
+
+alias yyt="yt && y"
+alias ytt="yyt"
+
+alias s="open -a Safari"
+
+
+alias ticktick='open -a "TickTick"'
+alias tt="ticktick"
+
+
+
+# DEPRECATED
+# alias y="c --app=https://www.youtube.com/feed/subscriptions --start-fullscreen"
+# alias y="c --app=https://www.youtube.com/feed/subscriptions"
+
+# alias ys="c --app=https://www.youtube.com/playlist?list=PLdigrNNnDhwzKG754ONAV1__aIr2jUY0_ --start-fullscreen"
+# alias ytp="c --app=https://www.youtube.com/playlist?list=PLkleEIaNkCLTkdrnBRNb0NJwO30Wi_-9C --start-fullscreen"
+
+# alias t="f -new-window https://www.twitch.tv/"
+# alias y="firefox --kiosk https://www.youtube.com/feed/subscriptions > /dev/null 2>&1 < /dev/null &"
+
+# alias fp="firefox --kiosk https://www.youtube.com/feed/subscriptions > /dev/null 2>&1 < /dev/null &"
+# alias ys="f --kiosk https://www.youtube.com/playlist?list=PLdigrNNnDhwzKG754ONAV1__aIr2jUY0_ > /dev/null 2>&1 < /dev/null &"
+# alias yk="f --kiosk 'https://www.youtube.com/c/KraigAdams/videos?view=0&sort=da&flow=grid' > /dev/null 2>&1 < /dev/null &"
+
+# alias chrome-personal='chrome --args --profile-directory="Profile 3"' # '-n' is for opening new instance
+# alias chrome-work='chrome --args --profile-directory="Profile 1"' # '-n' is for opening new instance
+# alias chrome-work-incognito='chrome --args --incognito --profile-directory="Profile 1"' # '-n' is for opening new instance
+# alias vivaldi='open -na "Vivaldi"'
+# alias brave='open -na "Brave Browser"'
+# alias cw="chrome-work"
+# alias cwi="chrome-work-incognito"
+# alias cws="chrome-work-search"
+# alias google-tasks="c --new-window https://tasks.google.com/embed/?origin=https://mail.google.com"
+# alias gt="google-tasks && sleep .8 && osascript -e 'tell first window of application \"Google Chrome\" to set bounds to {100, 0, 550, 1000}'"
+# alias y="cw --new-window https://www.youtube.com/feed/subscriptions"
+# alias yp="cw --new-window https://www.youtube.com/playlist?list=PLkleEIaNkCLTkdrnBRNb0NJwO30Wi_-9C"
+# alias ys="cw --new-window https://www.youtube.com/playlist?list=PLdigrNNnDhwzKG754ONAV1__aIr2jUY0_"
+# alias brew-doctor="sudo chown -R $(whoami):admin  /usr/local/* && brew doctor"
+
